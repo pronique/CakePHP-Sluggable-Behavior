@@ -52,7 +52,7 @@ class SluggableBehavior extends ModelBehavior
      * @param array $settings Settings to override for model.
      * @access public
      */
-    function setup(&$Model, $settings = array())
+    public function setup(Model $Model, $settings = array())
     {
         $default = array('label' => array('title'), 'slug' => 'slug', 'separator' => '-', 'length' => 100, 'overwrite' => false, 'translation' => null);
 
@@ -82,8 +82,7 @@ class SluggableBehavior extends ModelBehavior
      * @return boolean true if save should proceed, false otherwise
      * @access public
      */
-    function beforeSave(&$Model)
-    {
+	public function beforeSave(Model $Model, $options = array()) {
         $return = parent::beforeSave($Model);
 
         // Make label fields an array
@@ -364,4 +363,3 @@ class SluggableBehavior extends ModelBehavior
     }
 }
 
-?>
